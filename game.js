@@ -219,7 +219,7 @@ function startTimer() {
     state.timer = 0;
     state.timerInterval = setInterval(() => {
         state.timer++;
-        $('#timer').textContent = state.timer + '秒';
+        $('#timer').textContent = state.timer + '秒 / ' + state.timer + 's';
     }, 1000);
 }
 
@@ -232,8 +232,8 @@ function stopTimer() {
 
 // ==================== UI Update ====================
 function updateUI() {
-    $('#timer').textContent = state.timer + '秒';
-    $('#moves').textContent = state.moves + '手';
+    $('#timer').textContent = state.timer + '秒 / ' + state.timer + 's';
+    $('#moves').textContent = state.moves + '手 / ' + state.moves;
     $('#pairs').textContent = `${state.matchedPairs}/${state.totalPairs}`;
 }
 
@@ -273,8 +273,8 @@ function showResultScreen() {
         starContainer.appendChild(span);
     }
 
-    $('#resultTime').textContent = state.timer + '秒';
-    $('#resultMoves').textContent = state.moves + '手';
+    $('#resultTime').textContent = state.timer + '秒 / ' + state.timer + 's';
+    $('#resultMoves').textContent = state.moves + '手 / ' + state.moves;
 
     showScreen('result');
 }
@@ -283,9 +283,9 @@ function showResultScreen() {
 function shareResult() {
     const stars = getStars(state.moves, state.difficulty);
     const starStr = '⭐'.repeat(stars);
-    const diffLabel = { easy: 'Easy', normal: 'Normal', hard: 'Hard' }[state.difficulty];
+    const diffLabel = { easy: 'かんたん/Easy', normal: 'ふつう/Normal', hard: 'むずかしい/Hard' }[state.difficulty];
 
-    const text = `【筋肉神経衰弱】${state.timer}秒・${state.moves}手でクリア！${starStr}（${diffLabel}）\n#MuscleLove #筋肉神経衰弱\nhttps://www.patreon.com/cw/MuscleLove`;
+    const text = `【筋肉神経衰弱 / Muscle Memory】${state.timer}秒/${state.timer}s・${state.moves}手/${state.moves}moves でクリア！Cleared! ${starStr}（${diffLabel}）\n#MuscleLove #筋肉神経衰弱 #MuscleMemory\nhttps://www.patreon.com/cw/MuscleLove`;
 
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank', 'width=550,height=420');
