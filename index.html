@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MuscleLove 筋肉神経衰弱</title>
+    <meta name="description" content="筋肉美女の神経衰弱ゲーム！カードをめくってペアを見つけよう！">
+    <meta property="og:title" content="MuscleLove 筋肉神経衰弱">
+    <meta property="og:description" content="筋肉美女の神経衰弱ゲーム！カードをめくってペアを見つけよう！">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1 class="title">
+            <span class="title-brand">MuscleLove</span>
+            <span class="title-game">筋肉神経衰弱</span>
+        </h1>
+    </header>
+
+    <!-- Start Screen -->
+    <div id="startScreen" class="screen active">
+        <div class="start-container">
+            <div class="logo-big">💪</div>
+            <h2 class="start-title">筋肉神経衰弱</h2>
+            <p class="start-desc">カードをめくってペアを見つけよう！</p>
+
+            <div class="difficulty-selector">
+                <label class="difficulty-label">難易度を選択</label>
+                <div class="difficulty-buttons">
+                    <button class="diff-btn" data-difficulty="easy">
+                        <span class="diff-icon">🟢</span>
+                        <span class="diff-name">Easy</span>
+                        <span class="diff-detail">3×4（6ペア）</span>
+                    </button>
+                    <button class="diff-btn active" data-difficulty="normal">
+                        <span class="diff-icon">🟡</span>
+                        <span class="diff-name">Normal</span>
+                        <span class="diff-detail">4×4（8ペア）</span>
+                    </button>
+                    <button class="diff-btn" data-difficulty="hard">
+                        <span class="diff-icon">🔴</span>
+                        <span class="diff-name">Hard</span>
+                        <span class="diff-detail">4×5（10ペア）</span>
+                    </button>
+                </div>
+            </div>
+
+            <button id="startBtn" class="btn-primary btn-glow">
+                ゲームスタート
+            </button>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="gameScreen" class="screen">
+        <div class="game-info">
+            <div class="info-item">
+                <span class="info-label">⏱ タイム</span>
+                <span id="timer" class="info-value">0秒</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">👆 手数</span>
+                <span id="moves" class="info-value">0手</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">✅ ペア</span>
+                <span id="pairs" class="info-value">0/10</span>
+            </div>
+        </div>
+
+        <div id="gameBoard" class="game-board"></div>
+
+        <button id="retryBtn" class="btn-secondary">
+            🔄 やり直す
+        </button>
+    </div>
+
+    <!-- Result Screen -->
+    <div id="resultScreen" class="screen">
+        <div class="result-container">
+            <div class="result-badge">CLEAR!</div>
+            <h2 class="result-title">ゲームクリア！</h2>
+
+            <div id="starRating" class="star-rating"></div>
+
+            <div class="result-stats">
+                <div class="stat">
+                    <span class="stat-label">クリアタイム</span>
+                    <span id="resultTime" class="stat-value">0秒</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">手数</span>
+                    <span id="resultMoves" class="stat-value">0手</span>
+                </div>
+            </div>
+
+            <div class="result-actions">
+                <button id="shareBtn" class="btn-primary btn-share">
+                    𝕏 でシェア
+                </button>
+                <button id="retryBtn2" class="btn-secondary">
+                    🔄 もう一度プレイ
+                </button>
+                <button id="backBtn" class="btn-secondary">
+                    🏠 タイトルに戻る
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Patreon CTA -->
+    <footer class="patreon-cta">
+        <a href="https://www.patreon.com/cw/MuscleLove" target="_blank" rel="noopener noreferrer" class="patreon-link">
+            <span class="patreon-text">💪 もっと筋肉美女を見たい？</span>
+            <span class="patreon-btn">Patreonで限定コンテンツをチェック →</span>
+        </a>
+    </footer>
+
+    <script src="game.js"></script>
+</body>
+</html>
